@@ -11,7 +11,8 @@ import 'element-ui/lib/theme-chalk/index.css'
 import axios from 'axios'
 // 加入mock
 import './api/mock'
-
+// 引入vuex
+import store from './store/index.js'
 Vue.use(ElementUI)
 Vue.config.productionTip = false
 Vue.prototype.$http =axios;
@@ -19,6 +20,7 @@ Vue.prototype.$http =axios;
 new Vue({
   el: '#app',
   router,
+  store,
   components: { App },
   template: '<App/>'
 })

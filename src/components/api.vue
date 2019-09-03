@@ -1,12 +1,10 @@
 <template>
   <div class="hello">
-    <h1>这里是helloworld页面</h1>
+    <h1>这里是点击添加选项后的页面</h1>
     <h1>{{ msg }}</h1>
     <div id="app">
     <el-button @click="query" type="primary">查询</el-button>
-    <router-link to="/api">
     <el-button @click="add" type="success">增加</el-button>
-    </router-link>
     </div>
   </div>
 </template>
@@ -16,18 +14,18 @@ export default {
   name: 'HelloWorld',
   data () {
     return {
-      msg: '干哈玩意儿来我这'
+      msg: '开始点击....'
     };
   },
   methods: {
   query() {//查询按钮获取信息
-  this.msg=this.$store.state.user+this.$store.state.text;//写在页面上的
+  this.msg="点击查询结果："+this.$store.state.user+this.$store.state.text;//写在页面上的
   console.log("Helloworld页面中query点击之后"+this.msg+"收到否?");//控制台可以输出来的
   },
   add(){//添加按钮
   this.msg1=this.$store.state.user+this.$store.state.text;//写在页面上的
-  console.log("Helloworld页面中按钮 添加中的add1 store对象的值"+this.$store.state.text);
-  console.log("Helloworld页面中按钮 添加中的add2 store对象的值"+this.$store.state.user);
+  this.$store.commit('add',this.textValue);
+  console.log("点击添加之后的结果："+this.$store.state.user+this.$store.state.text);
   }
   },
   store,
